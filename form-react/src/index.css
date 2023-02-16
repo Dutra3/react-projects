@@ -1,6 +1,12 @@
 :root {
     --bg-primary: linear-gradient(195deg, rgba(240, 98,146, 1) 0%, rgba(221, 89, 133, 1) 98%);
     --bg-secundary: #394049;
+    --todo-done: rgba(240, 98, 146);
+    --input-color: #2c3035;
+    --input-text: #dfdfdf;
+    --bg-button: #333333;
+    --text-button: #eeeeee;
+    --hover-color: rgb(240, 98, 146);
     --white: #ffffff;
 }
 

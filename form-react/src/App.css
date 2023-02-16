@@ -43,14 +43,14 @@
 .form-control input {
     border: 1px solid #222;
     border-radius: 2px;
-    background-color: #2c3035;
+    background-color: var(--input-color);
     padding: 0.5em;
-    color: #dfdfdf;
+    color: var(--input-text);
 }
 
 input[type="submit"] {
-    background-color: #333;
-    color: #eee;
+    background-color: var(--bg-button);
+    color: var(--text-button);
     display: block;
     width: 100%;
     border: 1px solid #222;
@@ -83,7 +83,7 @@ input[type="submit"] {
 
 .todo-done {
     text-decoration: line-through;
-    color: rgba(240, 98, 146);
+    color: var(--todo-done);
 }
 
 .todo p {
@@ -101,6 +101,6 @@ input[type="submit"] {
 }
 
 .todo svg:hover {
-    color: rgb(240, 98, 146);
+    color: var(--hover-color);
 }
 

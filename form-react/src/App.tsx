@@ -10,6 +10,10 @@ interface TodoProps {
     done: boolean,
 }
 
+interface DataProps extends Response{
+    id?: number,
+}
+
 const API = "http://localhost:5000";
 
 const App = () => {
@@ -52,7 +56,8 @@ const App = () => {
             }
         });
 
-        setTodos((prevState) => [...prevState, todo]);
+        // @ts-ignore
+        setTodos((prevState: any) => [...prevState, todo]);
 
         setTitle("");
         setTIme("");
@@ -63,13 +68,13 @@ const App = () => {
             method: "DELETE",
         });
 
-        setTodos((prevState) => prevState.filter((todo: TodoProps) => todo.id !== id));
+        setTodos((prevState: any) => prevState.filter((todo: TodoProps) => todo.id !== id));
     }
 
     const handleEdit = async (todo: TodoProps) => {
         todo.done = !todo.done;
 
-        const data = await fetch(API + "/todos/" + todo.id, {
+        const data: DataProps = await fetch(API + "/todos/" + todo.id, {
             method: "PUT",
             body: JSON.stringify(todo),
             headers: {
@@ -77,7 +82,9 @@ const App = () => {
             }
         });
 
-        setTodos((prevState) => prevState.map((todo: TodoProps) => todo.id !== id));
+        setTodos((prevState: any) =>
+            prevState.map((todo: TodoProps) => (todo.id === data.id ? data : todo))
+        );
     }
 
     if(loading) {
