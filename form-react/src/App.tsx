@@ -32,7 +32,7 @@ const App = () => {
                 .catch((error) => console.log(error));
 
             setLoading(false);
-            setTodos([]) //add response
+            setTodos(response)
         };
 
         loadData();
