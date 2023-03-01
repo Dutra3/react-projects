@@ -1,32 +1,72 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import React, {useState} from "react";
+import { UserForm } from "./components/UserForm";
+import { ReviewForm } from "./components/ReviewForm";
+import { Thanks } from "./components/Thanks";
+import { Steps } from "./components/Steps";
+import { useForm } from "./hooks/useForm";
+import { GrFormNext, GrFormPrevious } from 'react-icons/gr';
+import { FiSend } from 'react-icons/fi';
+import './App.css';
+
+const formTemplate = {
+    name: "",
+    email: "",
+    phone: "",
+    review: "",
+    comment: "",
+}
 
 function App() {
-  const [count, setCount] = useState(0)
+    const [data, setData] = useState();
+
+    const updateFieldHandler = (key: string, value: string) => {
+        setData((prev) => {
+            return {...prev, [key]: value};
+        });
+    };
+
+    const formComponents = [
+        <UserForm data={data} updateFieldHandler={updateFieldHandler}/>,
+        <ReviewForm data={data} updateFieldHandler={updateFieldHandler}/>,
+        <Thanks data={data} />
+    ];
+    const { currentStep, currentComponent, changeStep, isLastStep, isFirstStep } = useForm(formComponents);
 
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    <div className="app">
+        <div className="header">
+            <h2>Deixe sua avaliacao</h2>
+            <p>
+                Ficamos felizes com a sua compra, utilize o formulario abaixo para avaliar o produto
+            </p>
+        </div>
+        <div className="form-container">
+            <Steps currentStep={currentStep}/>
+            <form onSubmit={(event: React.FormEvent<HTMLFormElement>) => changeStep(currentStep + 1, event)}>
+                <div className="inputs-container">
+                    {currentComponent}
+                </div>
+                <div className="actions">
+                    {!isFirstStep && (
+                        <button type="button" onClick={(event: any) => changeStep(currentStep - 1, event)}>
+                            <GrFormPrevious />
+                            <span>Voltar</span>
+                        </button>
+                    )}
+                    {!isLastStep ? (
+                        <button type="submit">
+                            <span>Avancar</span>
+                            <GrFormNext />
+                        </button>
+                    ) : (
+                        <button type="button">
+                            <span>Enviar</span>
+                            <FiSend />
+                        </button>
+                    )}
+                </div>
+            </form>
+        </div>
     </div>
   )
 }
