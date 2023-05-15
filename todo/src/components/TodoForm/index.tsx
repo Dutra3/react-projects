@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 interface TodoFormProps {
-	addTodo: (text: string, category: string) => void;
+	addTodo: (value: string, category: string) => void;
 }
 
 const TodoForm = ({ addTodo }: TodoFormProps) => {
@@ -38,7 +38,7 @@ const TodoForm = ({ addTodo }: TodoFormProps) => {
 				<button type="submit">Criar tarefa</button>
 			</form>
 		</div>
-	)
-}
+	);
+};
 
-export { TodoForm }
+export { TodoForm };

@@ -1,10 +1,9 @@
 import { useState } from "react";
 import { Todo } from "./components/Todo";
 import { TodoForm } from "./components/TodoForm";
-import './App.css';
 import { Search } from "./components/Search";
 import { Filter } from "./components/Filter";
-
+import './App.css';
 
 const App = () => {
     const [todos, setTodos] = useState([
@@ -95,7 +94,7 @@ const App = () => {
             </div>
             <TodoForm addTodo={addTodo} />
         </div>
-    )
-}
+    );
+};
 
-export { App }
+export { App };

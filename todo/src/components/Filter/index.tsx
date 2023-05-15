@@ -1,6 +1,5 @@
 import { Dispatch, SetStateAction } from "react";
 
-
 interface FilterProps {
 	filter: string,
 	setFilter: Dispatch<SetStateAction<string>>;
