@@ -1,4 +1,9 @@
-import { BsFillEmojiHeartEyesFill, BsFillEmojiSmileFill, BsFillEmojiNeutralFill, BsFillEmojiFrownFill  } from 'react-icons/bs';
+import {
+    BsFillEmojiHeartEyesFill,
+    BsFillEmojiSmileFill,
+    BsFillEmojiNeutralFill,
+    BsFillEmojiFrownFill
+} from 'react-icons/bs';
 import './Thanks.css';
 
 interface ThanksProps {
