@@ -5,7 +5,6 @@ interface SearchProps {
 	setSearch: Dispatch<SetStateAction<string>>;
 }
 
-
 const Search = ({ search, setSearch }: SearchProps) => {
 	return (
 		<div className="search">
