@@ -16,7 +16,14 @@ interface ThanksProps {
     }
 }
 
-const emojiData = {
+interface EmojiDataProps {
+    unsatisfied: JSX.Element;
+    neutral: JSX.Element;
+    satisfied: JSX.Element;
+    very_satisfied: JSX.Element;
+}
+
+const emojiData: EmojiDataProps = {
     unsatisfied: <BsFillEmojiFrownFill />,
     neutral: <BsFillEmojiNeutralFill />,
     satisfied: <BsFillEmojiSmileFill />,
@@ -24,6 +31,8 @@ const emojiData = {
 }
 
 const Thanks = ({ data }: ThanksProps) => {
+    const option = data.review;
+
     return (
         <div className="thanks-container">
             <h2>Falta pouco...</h2>
@@ -32,7 +41,7 @@ const Thanks = ({ data }: ThanksProps) => {
             <h3>Aqui esta o resumo da sua avaliacao: {data.name}</h3>
             <p className="review-data">
                 <span>Satisfacao com o produto: </span>
-                {emojiData[data.review]}
+                {emojiData[option as keyof EmojiDataProps]}
             </p>
             <p className="review-data">
                 <span>Comentario: </span>

@@ -70,7 +70,7 @@ const ReviewForm = ({ data, updateFieldHandler }: ReviewFormProps) => {
                 <textarea
                     name="comment"
                     id="comment"
-                    placeholder="COnte como foi a sua experiencia com o produto..."
+                    placeholder="Conte como foi a sua experiencia com o produto..."
                     required
                     value={data.comment || ""}
                     onChange={(event) => updateFieldHandler("comment", event.target.value)}

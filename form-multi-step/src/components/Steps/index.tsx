@@ -3,7 +3,7 @@ import { AiOutlineUser, AiOutlineStar } from 'react-icons/ai';
 import { FiSend } from 'react-icons/fi';
 import './Step.css';
 
-const Steps = ({currentStep}: any) => {
+const Steps = ({ currentStep }: any) => {
     return (
         <div className="steps">
             <div className="step active">

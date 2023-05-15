@@ -16,8 +16,8 @@ const formTemplate = {
     comment: "",
 }
 
-function App() {
-    const [data, setData] = useState();
+const App = () => {
+    const [data, setData] = useState(formTemplate);
 
     const updateFieldHandler = (key: string, value: string) => {
         setData((prev) => {
@@ -26,8 +26,8 @@ function App() {
     };
 
     const formComponents = [
-        <UserForm data={data} updateFieldHandler={updateFieldHandler}/>,
-        <ReviewForm data={data} updateFieldHandler={updateFieldHandler}/>,
+        <UserForm data={data} updateFieldHandler={updateFieldHandler} />,
+        <ReviewForm data={data} updateFieldHandler={updateFieldHandler} />,
         <Thanks data={data} />
     ];
     const { currentStep, currentComponent, changeStep, isLastStep, isFirstStep } = useForm(formComponents);
@@ -41,7 +41,7 @@ function App() {
             </p>
         </div>
         <div className="form-container">
-            <Steps currentStep={currentStep}/>
+            <Steps currentStep={currentStep} />
             <form onSubmit={(event: React.FormEvent<HTMLFormElement>) => changeStep(currentStep + 1, event)}>
                 <div className="inputs-container">
                     {currentComponent}
@@ -68,7 +68,7 @@ function App() {
             </form>
         </div>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export { App };
