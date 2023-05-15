@@ -31,9 +31,9 @@ const TodoForm = ({ addTodo }: TodoFormProps) => {
         />
         <select value={category} onChange={(event) => setCategory(event.target.value)}>
           <option value="">Selecione uma categoria</option>
-          <option value="work">Trabalho</option>
-          <option value="personal">Pessoal</option>
-          <option value="study">Estudo</option>
+          <option value="Trabalho">Trabalho</option>
+          <option value="Pessoal">Pessoal</option>
+          <option value="Estudo">Estudo</option>
         </select>
         <button type="submit">Criar tarefa</button>
       </form>

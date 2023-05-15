@@ -6,22 +6,23 @@ interface TodoProps {
       text: string,
       category: string,
       isCompleted: boolean,
-    }
+    };
+  removeTodo: (text: number) => void;  
 }
 
-const Todo = ({ todo }: TodoProps) => {
+const Todo = ({ todo, removeTodo }: TodoProps) => {
   return (
     <div className="todo">
-    <div className="content">
+      <div className="content">
         <p>{todo.text}</p>
         <p className="category">({todo.category})</p>
-    </div>
-    <div>
+      </div>
+      <div>
         <button className="complete">Completar</button>
-        <button className="remove">X</button>
+        <button className="remove" onClick={() => removeTodo(todo.id)}>X</button>
+      </div>
     </div>
-</div>
-  )
-}
+  );
+};
 
 export { Todo };
