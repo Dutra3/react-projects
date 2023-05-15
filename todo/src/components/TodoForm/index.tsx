@@ -1,6 +1,10 @@
 import { useState } from "react";
 
-const TodoForm = () => {
+interface TodoFormProps {
+  addTodo: (text: string, category: string) => void; 
+}
+
+const TodoForm = ({ addTodo }: TodoFormProps) => {
   const [value, setValue] = useState("");
   const [category, setCategory] = useState("");
 
@@ -10,9 +14,10 @@ const TodoForm = () => {
       return;
     }
 
+    addTodo(value, category);
     setValue("");
     setCategory("");
-  }
+  };
 
   return (
     <div className="todo-form">
