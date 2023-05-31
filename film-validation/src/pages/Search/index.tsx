@@ -6,6 +6,10 @@ import '../MovieGrid.css';
 const SEARCH_URL = import.meta.env.VITE_SEARCH;
 const API_KEY = import.meta.env.VITE_API_KEY;
 
+interface MovieProps {
+	id: number;
+}
+
 const Search = () => {
 	const [searchParams] = useSearchParams();
 	const [movies, setMovies] = useState([]);
@@ -34,7 +38,7 @@ const Search = () => {
 			</h2>
 			<div className='movies-container'>
 				{movies.length > 0 && 
-					movies.map((movie) => <MovieCard key={movie.id} movie={movie} />)}
+					movies.map((movie: MovieProps) => <MovieCard key={movie.id} movie={movie} />)}
 			</div>
 		</div>
 	);

@@ -5,6 +5,10 @@ import '../MovieGrid.css';
 const MOVIES_URL = import.meta.env.VITE_API;
 const API_KEY = import.meta.env.VITE_API_KEY;
 
+interface MovieProps {
+	id: number;
+}
+
 const Home = () => {
 	const [topMovies, setTopMovies] = useState([]);
 
@@ -28,7 +32,7 @@ const Home = () => {
 			<h2 className='title'>Melhores Filmes:</h2>
 			<div className='movies-container'>
 				{topMovies.length === 0 && <p>Carregando...</p> }
-				{topMovies.length > 0 && topMovies.map((movie) => <MovieCard key={movie.id} movie={movie} />)}
+				{topMovies.length > 0 && topMovies.map((movie: MovieProps) => <MovieCard key={movie.id} movie={movie} />)}
 			</div>
 		</div>
 	);

@@ -9,13 +9,21 @@ import {
 } from 'react-icons/bs';
 import './Movie.css';
 
+interface MovieProps {
+	id: number;
+	tagline: string;
+	budget: number;
+	revenue: number;
+	runtime: number;
+	overview: number
+}
 
 const MOVIES_URL = import.meta.env.VITE_API;
 const API_KEY = import.meta.env.VITE_API_KEY;
 
 const Movie = () => {
 	const { id } = useParams();
-	const [movie, setMovie] = useState(null);
+	const [movie, setMovie] = useState<MovieProps | null>(null);
 
 	const getMovie = async(url: string) => {
 		const res = await fetch(url);
@@ -39,7 +47,7 @@ const Movie = () => {
 
 	return (
 		<div className="movie-page">
-			{movie && 
+			{movie && (
 				<>
 					<MovieCard movie={movie} showLink={false} />
 					<p className="tagline">{movie.tagline}</p>
@@ -68,7 +76,7 @@ const Movie = () => {
 						<p>{movie.overview}</p>
 					</div>
 				</>
-			}
+			)}
 		</div>
 	);
 };
