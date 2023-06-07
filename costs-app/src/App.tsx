@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
 import { Container } from './components/layout';
 import { Home } from './components/pages/Home';
+import { Projects } from './components/pages/Projects';
 import { Company } from './components/pages/Company';
 import { Contact } from './components/pages/Contact';
 import { NewProject } from './components/pages/NewProject';
@@ -16,6 +17,9 @@ const App = () => {
 			<Routes>
 					<Route path='/' 
 						element={<Container customClass="min-height"> <Home /> </Container>} 
+					/>
+					<Route path='/projects' 
+						element={<Container customClass="min-height"> <Projects /> </Container>} 
 					/>
 					<Route path='/company' 
 						element={<Container customClass="min-height"> <Company /> </Container>} 
