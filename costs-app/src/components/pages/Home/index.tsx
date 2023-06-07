@@ -1,7 +1,7 @@
 
 import styles from './Home.module.css';
 import savings from '../../../assets/savings.svg';
-import { LinkButton } from '../../layout/LinkButton';
+import { LinkButton } from '../../LinkButton';
 
 const Home = () => {
 	return (

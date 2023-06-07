@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
-import { Container } from './components/layout/Container';
+import { Container } from './components/Container';
 import { Home } from './components/pages/Home';
 import { Projects } from './components/pages/Projects';
 import { Company } from './components/pages/Company';
@@ -14,23 +14,15 @@ const App = () => {
 	return (
 		<Router>
 			<Navbar />
-			<Routes>
-					<Route path='/' 
-						element={<Container customClass="min-height"> <Home /> </Container>} 
-					/>
-					<Route path='/projects' 
-						element={<Container customClass="min-height"> <Projects /> </Container>} 
-					/>
-					<Route path='/company' 
-						element={<Container customClass="min-height"> <Company /> </Container>} 
-					/>
-					<Route path='/contact' 
-						element={<Container customClass="min-height">  <Contact /> </Container>} 
-					/>
-					<Route path='/newproject' 
-						element={<Container customClass="min-height"> <NewProject /> </Container>} 
-					/>
-			</Routes>
+			<Container customClass="min-height">
+				<Routes>
+					<Route path='/' element={<Home />} />
+					<Route path='/projects' element={<Projects />} />
+					<Route path='/company' element={<Company />} />
+					<Route path='/contact' element={<Contact />} />
+					<Route path='/newproject' element={<NewProject />} />
+				</Routes>
+			</Container>
 			<Footer />
 		</Router>
 	);
