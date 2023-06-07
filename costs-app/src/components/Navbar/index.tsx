@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Container } from '../layout';
+import { Container } from '../layout/Container';
 import styles from './Navbar.module.css';
 import logo from '../../assets/costs_logo.png';
 
