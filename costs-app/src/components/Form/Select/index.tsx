@@ -5,7 +5,7 @@ import styles from './Select.module.css';
 interface SelectProps {
     text: string;
     name: string;
-    options: string
+    options: { id: number; name: string; }[]
     handleOnChange: ChangeEventHandler<HTMLInputElement>;
     value: string
 }
