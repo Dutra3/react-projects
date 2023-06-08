@@ -1,8 +1,8 @@
 
 
-import { Input } from '../Input';
-import { Select } from '../Select';
-import { SubmitButton } from '../SubmitButton';
+import { Input } from '../Form/Input';
+import { Select } from '../Form/Select';
+import { SubmitButton } from '../Form/SubmitButton';
 import styles from './ProjectForm.module.css';
 
 interface ProjectFormProps {
