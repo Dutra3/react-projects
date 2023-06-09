@@ -1,8 +1,7 @@
 
-
+import { Link } from 'react-router-dom';
 import { BsPencil, BsFillTrashFill } from 'react-icons/bs';
 import styles from './ProjectCard.module.css';
-import { Link } from 'react-router-dom';
 
 interface ProjectCardProps {
     id: number
@@ -14,20 +13,26 @@ interface ProjectCardProps {
 
 
 const ProjectCard = ({ id, name, budget, category, handleRemove }: ProjectCardProps) => {
+    
+    const remove = (event) => {
+        event.preventDefault();
+        handleRemove(id);
+    }
+
 	return (
 		<div className={styles.project_card}>
             <h4>{name}</h4>
             <p>
-                <span>Orcamento:</span> R${budget}
+                <span>Orçamento:</span> R${budget}
             </p>
             <p className={styles.category_text}>
                 <span className={`${styles[category.toLowerCase()]}`}></span> {category}
             </p>
             <div className={styles.project_card_actions}>
-                <Link to='/'>
+                <Link to={`/project/${id}`}>
                     <BsPencil /> Editar
                 </Link>
-                <button>
+                <button onClick={remove}>
                     <BsFillTrashFill /> Excluir
                 </button>
             </div>
