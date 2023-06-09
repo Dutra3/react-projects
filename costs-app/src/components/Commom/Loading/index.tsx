@@ -1,5 +1,3 @@
-
-
 import styles from './Loading.module.css';
 import loading from '../../../assets/loading.svg';
 

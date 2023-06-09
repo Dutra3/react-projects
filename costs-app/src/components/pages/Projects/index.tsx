@@ -1,13 +1,11 @@
-
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { Message } from "../../Message";
 import { Container } from "../../Commom/Container";
 import { LinkButton } from "../../Commom/LinkButton";
 import { ProjectCard } from "../../ProjectCard";
-
-import styles from './Projects.module.css';
 import { Loading } from "../../Commom/Loading";
+import styles from './Projects.module.css';
 
 interface ProjectProps {
     id: number;

@@ -1,19 +1,17 @@
-
 import { BsFillTrashFill } from 'react-icons/bs';
 import styles from '../ProjectCard/ProjectCard.module.css';
 
-
 interface ServiceCardProps {
-	id: number;
+	id: string;
 	name: string;
-	cost: number;
+	cost: string;
 	description: string;
-	handleRemove: string;
+	handleRemove: (id: string, cost: string) => void;
 }
 
 const ServiceCard = ({ id, name, cost, description, handleRemove }: ServiceCardProps) => {
 
-	const removeService = (event) => {
+	const removeService = (event: { preventDefault: () => void; }) => {
 		event.preventDefault();
 		handleRemove(id, cost);
 	}

@@ -1,4 +1,3 @@
-
 import { ChangeEventHandler } from 'react';
 import styles from './Input.module.css';
 
@@ -8,7 +7,7 @@ interface InputProps {
     name: string;
     placeholder: string;
     handleOnChange: ChangeEventHandler<HTMLInputElement>;
-    value: string
+    value?: string
 }
 
 const Input = ({type, text, name, placeholder, handleOnChange, value}: InputProps) => {

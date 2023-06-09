@@ -1,32 +1,21 @@
 {
   "projects": [
     {
-      "name": "Projeto 1",
-      "budget": "30000",
+      "name": "",
+      "budget": "",
       "category": {
-        "id": "2",
-        "name": "Desenvolvimento"
+        "id": "",
+        "name": "Selecione uma opção"
       },
       "cost": 0,
       "services": [],
       "id": 1
     },
     {
-      "name": "Projeto 2",
-      "budget": "3500",
-      "category": {
-        "id": "3",
-        "name": "Design"
-      },
-      "cost": 12,
-      "services": [
-        {
-          "name": "Projeto 1",
-          "cost": "12",
-          "description": "ada",
-          "id": "d3c39383-4f61-4df9-b0c2-6d33b6ebfef8"
-        }
-      ],
+      "budget": "10",
+      "name": "a",
+      "cost": 0,
+      "services": [],
       "id": 2
     }
   ],

@@ -1,30 +1,53 @@
-import { useState } from 'react';
+import { ChangeEvent, FormEvent, useState } from 'react';
 import { Input } from '../Form/Input';
 import { SubmitButton } from '../Form/SubmitButton';
 import styles from '../ProjectForm/ProjectForm.module.css';
 
-interface ServiceFormProps {
-    handleSubmit: string;
-    btnText: string;
-    projectData: string;
+interface ServiceProps {
+    name: string;
+    cost: number;
+    description: string;
+    id: string;
 }
 
+interface ProjectProps {
+    name: string;
+    budget: string;
+    category: {
+        id: string,
+        name: string
+    };
+    cost: number;
+    services: Array<ServiceProps>;
+    id: number;
+}
+
+interface ServiceFormProps {
+    handleSubmit: (projectData: ProjectProps) => false | undefined;
+    btnText: string;
+    projectData: ProjectProps;
+}
 
 const ServiceForm = ({ handleSubmit, btnText, projectData }: ServiceFormProps) => {
-    const [service, setService] = useState({});
+    const [service, setService] = useState<ServiceProps>({
+        name: '',
+        cost: 0,
+        description: '',
+        id: '',
+    });
 
-    const submit = (event) => {
+    const submitService = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         projectData.services.push(service);
         handleSubmit(projectData);
     }
 
-    const handleChange = (event) => {
+    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
         setService({...service, [event.target.name]: event.target.value})
     }
 
     return (
-        <form onSubmit={submit} className={styles.form}>
+        <form onSubmit={submitService} className={styles.form}>
             <Input 
                 type='text'
                 text='Nome do servico'

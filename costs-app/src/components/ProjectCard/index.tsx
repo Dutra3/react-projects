@@ -8,13 +8,12 @@ interface ProjectCardProps {
     name: string;
     budget: number;
     category: string;
-    handleRemove: any;
+    handleRemove: (id: number) => void;
 }
-
 
 const ProjectCard = ({ id, name, budget, category, handleRemove }: ProjectCardProps) => {
     
-    const remove = (event) => {
+    const remove = (event: { preventDefault: () => void; }) => {
         event.preventDefault();
         handleRemove(id);
     }

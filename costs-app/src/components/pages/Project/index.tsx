@@ -1,22 +1,40 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { parse, v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from 'uuid';
 import { Container } from '../../Commom/Container';
 import { Loading } from '../../Commom/Loading';
 import { ProjectForm } from '../../ProjectForm';
 import { Message } from '../../Message';
 import { ServiceForm } from '../../ServiceForm';
-import styles from './Project.module.css';
 import { ServiceCard } from '../../ServiceCard';
+import styles from './Project.module.css';
 
+interface ServiceProps {
+    name: string;
+    cost: string;
+    description: string;
+    id: string;
+}
+
+interface ProjectProps {
+    name?: string;
+    budget?: string;
+    category?: {
+        id: string,
+        name: string
+    };
+    cost?: number;
+    services?: [];
+    id?: number;
+}
 
 const Project = () => {
-    const [project, setProject] = useState([]);
-    const [services, setServices] = useState([]);
+    const [project, setProject] = useState({});
+    const [services, setServices] = useState<ServiceProps | []>([]);
     const [showProjectForm, setShowProjectForm] = useState(false);
     const [showServiceForm, setShowServiceForm] = useState(false);
     const [message, setMessage] = useState<string | undefined>();
-    const [type, setType] = useState<string | undefined>();
+    const [type, setType] = useState<string>('');
     const { id } = useParams();
 
     useEffect(() => {
@@ -34,10 +52,12 @@ const Project = () => {
         .catch((err) => console.log(err))
     }, [id]);
 
-    const editProject = (project) => {
+    const editProject = (project: ProjectProps) => {
         setMessage('');
 
-        if(project.budget < project.cost) {
+        console.log(`project:`, project);
+
+        if(parseFloat(project.budget) < project.cost) {
             setMessage('O orçamento não pode ser menor que o custo do projeto!');
             setType('error');
 
@@ -92,10 +112,9 @@ const Project = () => {
             setShowServiceForm(false);
         })
         .catch((err) => console.log(err));
-
     }
 
-    const removeService = (id, cost) => {
+    const removeService = (id: string, cost: string) => {
         const servicesUpdated = project.services.filter(
             (service) => service.id !== id
         );
@@ -113,7 +132,7 @@ const Project = () => {
             body: JSON.stringify(projectUpdated)
         })
         .then((resp) => resp.json())
-        .then((data) => {
+        .then(() => {
             setProject(projectUpdated);
             setServices(servicesUpdated);
             setMessage('Serviço removido com sucesso!');
@@ -181,7 +200,7 @@ const Project = () => {
                     <h2>Servicos</h2>
                     <Container customClass='start'>
                         {services.length > 0 && 
-                           services.map((service) => (
+                           services.map((service: ServiceProps) => (
                                 <ServiceCard 
                                     id={service.id}
                                     name={service.name}

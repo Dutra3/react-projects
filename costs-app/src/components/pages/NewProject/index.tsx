@@ -1,23 +1,20 @@
-
 import { useNavigate } from 'react-router-dom';
 import { ProjectForm } from '../../ProjectForm';
 import styles from './NewProject.module.css';
 
 interface ProjectProps {
-		name: string;
-		budget: number;
-		category: 
-		{
-			id: number;
-			name: string;
-		};
-		cost: number;
-		services: [];
-		id: number;
+    name?: string;
+    budget?: string;
+    category?: {
+        id: string,
+        name: string
+    };
+    cost?: number;
+    services?: [];
+    id?: number;
 }
 
 const NewProject = () => {
-
 	const navigate = useNavigate();
 
 	const createPost = (project: ProjectProps) => {
