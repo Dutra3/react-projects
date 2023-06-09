@@ -13,13 +13,20 @@
     },
     {
       "name": "Projeto 2",
-      "budget": "35000",
+      "budget": "3500",
       "category": {
         "id": "3",
         "name": "Design"
       },
-      "cost": 0,
-      "services": [],
+      "cost": 12,
+      "services": [
+        {
+          "name": "Projeto 1",
+          "cost": "12",
+          "description": "ada",
+          "id": "d3c39383-4f61-4df9-b0c2-6d33b6ebfef8"
+        }
+      ],
       "id": 2
     }
   ],

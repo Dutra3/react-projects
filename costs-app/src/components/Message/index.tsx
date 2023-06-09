@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import styles from './Message.module.css';
 
 interface MessageProps {
-    type: string;
+    type?: string;
     message: string;
 }
 
