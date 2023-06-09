@@ -1,12 +1,12 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Navbar } from './components/Navbar';
-import { Container } from './components/Container';
+import { Navbar } from './components/Commom/Navbar';
+import { Container } from './components/Commom/Container';
 import { Home } from './components/pages/Home';
 import { Projects } from './components/pages/Projects';
 import { Company } from './components/pages/Company';
 import { Contact } from './components/pages/Contact';
 import { NewProject } from './components/pages/NewProject';
-import { Footer } from './components/Footer';
+import { Footer } from './components/Commom/Footer';
 
 const App = () => {
 
