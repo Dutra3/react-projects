@@ -32,6 +32,7 @@ Dependencies:
 - yarn add react-icons
 - yarn add react-router-dom
 - yarn add uuid
+- yarn add @types/uuid --dev
 
 Also can be one line command: yarn add json-server react-icons react-router-dom uuid
 
