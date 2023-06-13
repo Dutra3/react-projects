@@ -24,6 +24,10 @@
     cursor: pointer;
 }
 
+.item {
+    text-decoration: none;
+}
+
 .copy_right {
     margin-top: 2em;
 }

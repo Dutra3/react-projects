@@ -98,7 +98,7 @@ const Project = () => {
 
     const removeService = (id: string, cost: string) => {
         const servicesUpdated = project.services.filter(
-            (service) => service.id !== id
+            (service: ServiceProps) => service.id !== id
         );
 
         const projectUpdated = project;

@@ -28,7 +28,6 @@ const Projects = () => {
     }
 
     const getProjects = () => {
-        
         ProjectService.getProjectsData()
         .then((resp) => resp.json())
         .then((data) => {
