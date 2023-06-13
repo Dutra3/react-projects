@@ -58,6 +58,7 @@ Dependencies:
 Also can be one line command: yarn add json-server react-icons react-router-dom uuid
 
 To start frontend: yarn run dev
+
 To start backend: yarn run backend
 
 
