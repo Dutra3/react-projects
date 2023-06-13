@@ -2,6 +2,7 @@ import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 import { Input } from '../Form/Input';
 import { Select } from '../Form/Select';
 import { SubmitButton } from '../Form/SubmitButton';
+import CateoryService from '../../service/CategoryService';
 import styles from './ProjectForm.module.css';
 
 interface ProjectProps {
@@ -27,24 +28,16 @@ const ProjectForm = ({ handleSubmit, btnText, projectData }: ProjectFormProps) =
     const [project, setProject] = useState<ProjectProps>(projectData);
 
     const getCategories = () => {
-        fetch('http://localhost:5000/categories', {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-            },
+        CateoryService.getCategoriesData()
+        .then((resp) => resp.json())
+        .then((data) => {
+            setCategories(data);
         })
-            .then((resp) => resp.json())
-            .then((data) => {
-                setCategories(data);
-            })
-            .catch((err) => console.log(err));
+        .catch((error) => console.error(error));
     }
-
-    useEffect(getCategories, []);
 
     const submit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        console.log(`inside projectForm`, project)
         handleSubmit(project);
     }
 
@@ -60,6 +53,8 @@ const ProjectForm = ({ handleSubmit, btnText, projectData }: ProjectFormProps) =
             },
         });
     }
+
+    useEffect(getCategories, []);
 
     return (
         <form onSubmit={submit} className={styles.form}>
