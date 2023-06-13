@@ -10,20 +10,22 @@ const Message = ({ type, message }: MessageProps) => {
     const [visible, setVisible] = useState<boolean>(false);
 
 
-    useEffect(() => {
-        if(!message) {
+    const handleVisibility = () => {
+        let timer: NodeJS.Timeout;
+      
+        if (message) {
+          setVisible(true);
+          timer = setTimeout(() => {
             setVisible(false);
-            return
+          }, 3000);
+        } else {
+          setVisible(false);
         }
-
-        setVisible(true)
-
-        const timer = setTimeout(() => {
-            setVisible(false);
-        }, 3000)
-
+      
         return () => clearTimeout(timer);
-    }, [message]);
+      };
+      
+      useEffect(handleVisibility, [message]);
 
     return (
         <>

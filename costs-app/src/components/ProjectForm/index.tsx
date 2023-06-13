@@ -26,7 +26,7 @@ const ProjectForm = ({ handleSubmit, btnText, projectData }: ProjectFormProps) =
     const [categories, setCategories] = useState<Array<{ id: number; name: string; }>>([]);
     const [project, setProject] = useState<ProjectProps>(projectData);
 
-    useEffect(() => {
+    const getCategories = () => {
         fetch('http://localhost:5000/categories', {
             method: 'GET',
             headers: {
@@ -38,7 +38,9 @@ const ProjectForm = ({ handleSubmit, btnText, projectData }: ProjectFormProps) =
                 setCategories(data);
             })
             .catch((err) => console.log(err));
-    }, []);
+    }
+
+    useEffect(getCategories, []);
 
     const submit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();

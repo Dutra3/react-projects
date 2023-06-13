@@ -37,7 +37,7 @@ const Project = () => {
     const [type, setType] = useState<string>('');
     const { id } = useParams();
 
-    useEffect(() => {
+    const getProjects = () => {
         fetch(`http://localhost:5000/projects/${id}`, {
             method: 'GET',
             headers: {
@@ -50,12 +50,10 @@ const Project = () => {
             setServices(data.services);
         })
         .catch((err) => console.log(err))
-    }, [id]);
+    }
 
     const editProject = (project: ProjectProps) => {
         setMessage('');
-
-        console.log(`project:`, project);
 
         if(parseFloat(project.budget) < project.cost) {
             setMessage('O orçamento não pode ser menor que o custo do projeto!');
@@ -148,6 +146,8 @@ const Project = () => {
     const toggleServiceForm = () => {
         setShowServiceForm(!showServiceForm);
     };
+
+    useEffect(getProjects, [id]);
 
     return (
         <>

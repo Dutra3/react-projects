@@ -8,7 +8,6 @@ const Contact = () => {
 				<h1>Contact: dutrasoftware@gmail.com</h1>
 			</div>
 		</Container>
-		
 	);
 };
 

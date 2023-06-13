@@ -26,7 +26,7 @@ const Projects = () => {
         message = location.state.message;
     }
 
-    useEffect(() => {
+    const getProjects = () => {
         fetch('http://localhost:5000/projects', {
             method: 'GET',
             headers: {
@@ -39,7 +39,7 @@ const Projects = () => {
             setRemoveLoading(true);
         })
         .catch((err) => console.log(err))
-    }, []);
+    }
 
     const removeProject = (id: number) => {
         fetch(`http://localhost:5000/projects/${id}`, {
@@ -55,6 +55,8 @@ const Projects = () => {
         })
         .catch((err) => console.log(err))
     };
+
+    useEffect(getProjects, []);
 
     return (
         <div className={styles.project_container}>
