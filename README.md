@@ -4,6 +4,27 @@ Practicing react project basics with Vite and Typescript
 
 ## Axios-App
 
+Creating project with: yarn create vite axios-app --template react-ts
+
+### Project
+
+
+
+
+
+
+
+Dependencies:
+  
+
+### Installation
+
+
+
+Also can be one line command:
+
+To start frontend:
+To start backend: 
 
 
 ## Costs-App
@@ -36,34 +57,205 @@ Dependencies:
 
 Also can be one line command: yarn add json-server react-icons react-router-dom uuid
 
+To start frontend: yarn run dev
+To start backend: yarn run backend
+
 
 ## Countdown-App
 
+Creating project with: yarn create vite countdown-app --template react-ts
+
+### Project
+
+
+
+
+
+
+
+Dependencies:
+  
+
+### Installation
+
+
+
+Also can be one line command:
+
+To start frontend:
+To start backend:
 
 
 ## Film-Validation
 
+Creating project with: yarn create vite film-validation --template react-ts
+
+### Project
+
+
+
+
+
+
+
+Dependencies:
+  
+
+### Installation
+
+
+
+Also can be one line command:
+
+To start frontend:
+To start backend:
 
 
 ## Form-Multi-Step
 
+Creating project with: yarn create vite form-multi-step --template react-ts
+
+### Project
+
+
+
+
+
+
+
+Dependencies:
+  
+
+### Installation
+
+
+
+Also can be one line command:
+
+To start frontend:
+To start backend:
 
 
 ## Form-React
 
+Creating project with: yarn create vite form-react --template react-ts
+
+### Project
+
+
+
+
+
+
+
+Dependencies:
+  
+
+### Installation
+
+
+
+Also can be one line command:
+
+To start frontend:
+To start backend:
 
 
 ## Github-App
 
+Creating project with: yarn create vite github-app --template react-ts
+
+### Project
+
+
+
+
+
+
+
+Dependencies:
+  
+
+### Installation
+
+
+
+Also can be one line command:
+
+To start frontend:
+To start backend:
 
 
 ## Quiz-React
 
+Creating project with: yarn create vite quiz-react --template react-ts
+
+### Project
+
+
+
+
+
+
+
+Dependencies:
+  
+
+### Installation
+
+
+
+Also can be one line command:
+
+To start frontend:
+To start backend:
 
 
 ## Sass-Project
 
+Creating project with: yarn create vite sass-project --template react-ts
+
+### Project
+
+
+
+
+
+
+
+Dependencies:
+  
+
+### Installation
+
+
+
+Also can be one line command:
+
+To start frontend:
+To start backend:
 
 
 ## Todo-App
 
+Creating project with: yarn create vite todo-app --template react-ts
+
+### Project
+
+
+
+
+
+
+
+Dependencies:
+  
+
+### Installation
+
+
+
+Also can be one line command:
+
+To start frontend:
+To start backend:
