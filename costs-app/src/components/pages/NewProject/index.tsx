@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { ProjectForm } from '../../ProjectForm';
 import styles from './NewProject.module.css';
+import ProjectService from '../../../service/ProjectService';
 
 interface ProjectProps {
     name?: string;
@@ -18,17 +19,10 @@ const NewProject = () => {
 	const navigate = useNavigate();
 
 	const createPost = (project: ProjectProps) => {
-		console.log(`inside newproject`, project)
 		project.cost = 0;
 		project.services = [];
 
-		fetch('http://localhost:5000/projects', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify(project),
-		})
+		ProjectService.createProject(project)
 		.then((resp) => resp.json())
 		.then(() => {
 			navigate('/projects', { state: {message: 'Projeto criado com sucesso!'} })

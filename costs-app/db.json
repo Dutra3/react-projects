@@ -1,22 +1,33 @@
 {
   "projects": [
     {
-      "name": "",
-      "budget": "",
+      "name": "Projeto Pos ProjectService",
+      "budget": "2000",
       "category": {
-        "id": "",
-        "name": "Selecione uma opção"
+        "id": "5",
+        "name": "Planejamento"
+      },
+      "cost": 0,
+      "services": [
+        {
+          "name": "Servico",
+          "cost": "100",
+          "description": "Servico Description",
+          "id": "f8755af1-ad05-4af1-8fbe-f159dffe1848"
+        }
+      ],
+      "id": 4
+    },
+    {
+      "name": "Projeto 3",
+      "budget": "30000",
+      "category": {
+        "id": "2",
+        "name": "Desenvolvimento"
       },
       "cost": 0,
       "services": [],
-      "id": 1
-    },
-    {
-      "budget": "10",
-      "name": "a",
-      "cost": 0,
-      "services": [],
-      "id": 2
+      "id": 5
     }
   ],
   "categories": [

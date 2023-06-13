@@ -6,6 +6,7 @@ import { LinkButton } from "../../Commom/LinkButton";
 import { ProjectCard } from "../../ProjectCard";
 import { Loading } from "../../Commom/Loading";
 import styles from './Projects.module.css';
+import ProjectService from "../../../service/ProjectService";
 
 interface ProjectProps {
     id: number;
@@ -27,12 +28,8 @@ const Projects = () => {
     }
 
     const getProjects = () => {
-        fetch('http://localhost:5000/projects', {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        })
+        
+        ProjectService.getProjectsData()
         .then((resp) => resp.json())
         .then((data) => {
             setProjects(data);
@@ -42,12 +39,7 @@ const Projects = () => {
     }
 
     const removeProject = (id: number) => {
-        fetch(`http://localhost:5000/projects/${id}`, {
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-        })
+        ProjectService.deleteProject(id)
         .then((resp) => resp.json())
         .then(() => {
             setProjects(projects.filter((project: ProjectProps) => project.id !== id));

@@ -8,6 +8,7 @@ import { Message } from '../../Message';
 import { ServiceForm } from '../../ServiceForm';
 import { ServiceCard } from '../../ServiceCard';
 import styles from './Project.module.css';
+import ProjectService from '../../../service/ProjectService';
 
 interface ServiceProps {
     name: string;
@@ -37,13 +38,8 @@ const Project = () => {
     const [type, setType] = useState<string>('');
     const { id } = useParams();
 
-    const getProjects = () => {
-        fetch(`http://localhost:5000/projects/${id}`, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
+    const getProject = () => {
+        ProjectService.getProjectData(id)
         .then((resp) => resp.json())
         .then((data) => {
             setProject(data);
@@ -62,13 +58,7 @@ const Project = () => {
             return false;
         }
 
-        fetch(`http://localhost:5000/projects/${project.id}`, {
-            method: 'PATCH',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(project),
-        })
+        ProjectService.updateProject(project)
         .then((resp) => resp.json())
         .then((data) => {
             setProject(data);
@@ -98,13 +88,7 @@ const Project = () => {
 
         project.cost = newCost;
 
-        fetch(`http://localhost:5000/projects/${project.id}`, {
-            method: 'PATCH',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(project)
-        })
+        ProjectService.updateProject(project)
         .then((resp) => resp.json())
         .then(() => {
             setShowServiceForm(false);
@@ -122,13 +106,7 @@ const Project = () => {
         projectUpdated.services = servicesUpdated;
         projectUpdated.cost = parseFloat(projectUpdated.cost) - parseFloat(cost);
 
-        fetch(`http://localhost:5000/projects/${projectUpdated.id}`, {
-            method: 'PATCH',
-            headers: {
-                'Content-type': 'application/json'
-            },
-            body: JSON.stringify(projectUpdated)
-        })
+        ProjectService.updateProject(projectUpdated)
         .then((resp) => resp.json())
         .then(() => {
             setProject(projectUpdated);
@@ -147,7 +125,7 @@ const Project = () => {
         setShowServiceForm(!showServiceForm);
     };
 
-    useEffect(getProjects, [id]);
+    useEffect(getProject, [id]);
 
     return (
         <>
