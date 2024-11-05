@@ -2,5 +2,6 @@
     "code-runner.executorMap": {
         "javascript": "node",
         "typescript": "yarn ts-node",
-    }
+    },
+    "git.ignoreLimitWarning": true
 }
