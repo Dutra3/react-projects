@@ -3,7 +3,7 @@ import { Button } from "./button";
 
 export const Header = () => {
     return (
-        <header className="flex justify-between items-center py-10">
+        <header className="mx-4 flex justify-between items-center py-10">
             <div className="text-3xl font-bold">Dutra Carros</div>
             <div>
                 <Link href={'/add'}>
