@@ -3,5 +3,8 @@
         "javascript": "node",
         "typescript": "yarn ts-node",
     },
-    "git.ignoreLimitWarning": true
+    "git.ignoreLimitWarning": true,
+    "editor.minimap.enabled": false,
+    "editor.minimap.showMarkSectionHeaders": false,
+    "editor.minimap.showRegionSectionHeaders": false
 }

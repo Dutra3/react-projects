@@ -1,10 +1,11 @@
 "use client"
 
+import { createCar } from "@/actions/create-car";
 import { Button } from "./button";
 
 export const AddForm = () => {
     return (
-        <form action="">
+        <form action={createCar}>
             <label className="block border border-gray-500 p-4 mb-3">
                 <input type="file" name="img" />
             </label>
