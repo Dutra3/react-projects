@@ -5,7 +5,7 @@ export const createCarSchema = z.object({
     description: z.string(),
     author_name: z.string(),
     author_email: z.string().email(),
-    negotiable: z.string().optional(),
+    negotiable: z.boolean(),
     price_from: z.string(),
     price_to: z.string(),
     img: z.instanceof(File)
